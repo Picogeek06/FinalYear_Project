@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Upload</title>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<script>
+$(document).ready(function(){
+  $("button").click(function()
+});
+</script>
+</head>
+<body >
+
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="{{ url_for('index') }}">Home<span class="sr-only">(current)</span></a>
+    <a class="navbar-brand" href="{{url_for('get_gallery')}}">Gallery</a>
+    <a class="navbar-brand" href="{{ url_for('delete') }}">Delete</a>
+    <a class="navbar-brand" href="{{ url_for('index') }}">multiple</a>
+    
+      
+</nav>
+<h2>Home</h2>
+<div class="shadow-lg p-3 mb-5 bg-white rounded">
+<div class="jumbotron">
+    
+
+<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+
+    <h1><strong>Files:</strong></h1><br>
+    <input id="file-picker" type="file" name="file" accept="image/*" multiple>
+    <div id="msg"></div>
+    <input type="submit" value="Upload!" id="upload-button">
+</form>
+<h1></h1>
+<form id="hello" action="{{ url_for('delete') }}" >
+
+<button type="submit" class="btn btn-success btn-block">Delete all Content</button>
+</form>
+<h2>Check Your image in gallery</h2>
+<h4><a href="{{url_for('get_gallery')}}">Gallery</a></h4>
+</div>
+</div>
+</div>
+
+</body>
+<script>
+
+    $("#file-picker").change(function(){
+
+        var input = document.getElementById('file-picker');
+
+        for (var i=0; i<input.files.length; i++)
+        {
+        //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+            var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+
+            if ((ext == 'jpg') || (ext == 'png') ||(ext == 'jpeg'))
+            {
+                $("#msg").text("Files are supported")
+            }
+            else
+            {
+                $("#msg").text("Files are NOT supported")
+                document.getElementById("file-picker").value ="";
+            }
+
+        }
+
+
+    } );
+
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+</html>

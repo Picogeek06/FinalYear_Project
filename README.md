@@ -1,6 +1,6 @@
-# FINAL YEAR PROJECT
+# FINAL YEAR PROJECT CSE_2020
 
-## About the project
+## About the Project
 
 - First segmentation and classification is trained separately.
 - Then trained models are stored in pickle file.
@@ -8,22 +8,22 @@
 - The main job segmentation model to find all the building inside a image.
 - Then the classisication model will classify building(complete,incomplete,foundation or empty).
 - The api will produce output for image of size 512x512.
-## Final output
+## Final Output
 
-### Input image
+### Input Image
  
 ![input image](./docs/input.jpg)
 
-### Output image
+### Output Image
 
 ![output image](./docs/output.png)
 
-## Author of code
+## AuthorS of Code
 
+- GOPAL KRISHNA MISHRA
 - SIDHARTH BISAL
+- ISHAN AYUS
+- BISHNU PRASAD SAHOO
+- ATITHEE APOORVA
 
-## Contributors
-
-- Ishan Ayus
-- Bishnu Prasad Sahoo
 

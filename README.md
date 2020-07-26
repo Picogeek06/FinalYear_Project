@@ -18,7 +18,7 @@
 
 ![output image](./docs/output.png)
 
-## AuthorS of Code
+## Authors of Code
 
 - GOPAL KRISHNA MISHRA
 - SIDHARTH BISAL
